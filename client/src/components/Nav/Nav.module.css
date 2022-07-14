@@ -1,0 +1,11 @@
+/* 
+Main Red: #e63946
+*/
+.navContainer {
+    height: 4rem;
+    background-color: #e63946;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}

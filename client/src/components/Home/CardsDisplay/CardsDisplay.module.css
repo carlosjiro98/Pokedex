@@ -1,0 +1,15 @@
+.displayContainer {
+    background-color: #daeff0;
+    width: 90%;
+    height: 80vh;
+    border-radius: 10px;
+}
+.cards{
+    background-color: #457b9d;
+    border-radius: 10px;
+    width: 65%;
+    height: 65vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3em;
+}
