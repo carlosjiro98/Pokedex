@@ -1,15 +1,42 @@
 .displayContainer {
-    background-color: #daeff0;
+    background-color: #e63946;
     width: 90%;
-    height: 80vh;
+    height: 83vh;
     border-radius: 10px;
 }
+.header {
+    height: 1.5rem;
+}
+.info {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
 .cards{
-    background-color: #457b9d;
+    background-color: #daeff0;
     border-radius: 10px;
     width: 65%;
-    height: 65vh;
+    height: 67.5vh;
+    padding: 2rem 1rem 1rem 1rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 3em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 2.5rem;
+    justify-items: center;
+    overflow: auto;
+}
+
+.cards::-webkit-scrollbar {
+    width: 7px;
+}
+.cards::-webkit-scrollbar-thumb {
+    background-color: #e46b75;
+    border-radius: 10px;
+}
+
+.semiDetail {
+    background-color: blue;
+    width: 32%;
 }

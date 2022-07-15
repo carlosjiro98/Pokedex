@@ -1,6 +1,7 @@
 .card {
     width: 170px;
     height: 210px;
+    
     display: flex;
     flex-direction: column;
     justify-content:center;
