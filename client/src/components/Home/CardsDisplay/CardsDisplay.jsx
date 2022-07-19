@@ -1,12 +1,20 @@
 import s from './CardsDisplay.module.css';
 import Card from './Card'
+import Controls from './controls/Controls';
 function CardsDisplay () {
     return (
         <div className={s.displayContainer}>
             <div className={s.header}>
-                <h6>Yo Displayo cards</h6>
+                <div id={s.bisel}>
+                    <div id={s.biselC}></div>
+                </div>
+                <div className={s.minC} id={s.red}></div>
+                <div className={s.minC} id={s.yellow}></div>
+                <div className={s.minC} id={s.green}></div>
+                <div id={s.bar}></div>
             </div>
             <div className={s.info}>
+
                 <div className={s.cards}>
                     <Card/>
                     <Card/>
@@ -21,9 +29,11 @@ function CardsDisplay () {
                     <Card/>
                     <Card/>
                 </div>
+
                 <div className={s.semiDetail}>
-                    <h3>Card Detail</h3>
+                    <Controls/>
                 </div>
+
             </div>
             
         </div>

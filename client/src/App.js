@@ -7,8 +7,17 @@ import Home from './components/Home/Home';
 import Nav from './components/Nav/Nav'
 //Utils
 import { Switch, Route } from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import { useEffect } from 'react';
+import {getPokes} from './store/actions'
 
 function App() {
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    dispatch(getPokes);
+  },[])
+
   return (
     <div className="App">
       <Switch>

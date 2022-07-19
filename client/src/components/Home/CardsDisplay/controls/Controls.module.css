@@ -1,0 +1,127 @@
+.mainContainer {
+    color: #424242;
+    height: 71vh;
+}
+/*--------------------------SemiDetail Screen-----------------*/
+.semiDetail {
+    height: 35vh;
+    background-color: #daeff0;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*--------------------------Conntrols--------------------------*/
+.controls{
+   
+    height: 36vh;
+    display: flex;
+    flex-direction: column;
+}
+/*--------------------------Conntrols -deco--------------------------*/
+.deco{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 3rem;
+}
+.deco1{
+    height: 1rem;
+    width: 7rem;
+    background-color: #82ea5c;
+    border-radius: 20px;
+    box-shadow: 0 0 0.5em #82ea5c,  0 0 0.5em #cffdbf, inset 0 0 0.5em #eaffe2;
+}
+.deco2{
+    height: 1rem;
+    width: 7rem;
+    background-color: #34c1c1;
+    border-radius: 20px;
+    box-shadow: 0 0 0.2em #d3f2f2, 0 0 0.5em #94f9f9, inset 0 0 0.5em #b5f9f9;
+}
+/*--------------------------Filters--------------------------*/
+.filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+.filterBtn{
+    background-color: #40d0d3;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+#left {
+    border-radius: 10px 0 0 10px;
+}
+#right {
+    border-radius: 0 10px 10px 0;
+}
+
+.filterBtn:hover{
+    background-color: #90f3f5;
+    box-shadow: 0 0 0.5em 0 #90f3f5;
+    cursor: pointer;
+}
+/*--------------------------Nav--------------------------*/
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+.nav div:hover {
+    cursor: pointer;
+}
+.circle {
+    background-color: #c3313d;
+    height: 5.6rem;
+    width: 5.6rem;
+    border-radius: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.find {
+    background-color: #82ea5c;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+.detail {
+    background-color: #ffff61;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+.home{
+    height: 5rem;
+    width: 5rem;
+    overflow: hidden;
+    
+}
+.home img {
+    width: 100%;
+}
+.detail:hover{
+    box-shadow: 0 0 0.2em #ffff61, 0 0 0.5em #f5f5c6, inset 0 0 0.5em #f5f5b5;
+    border: none;
+}
+.find:hover{
+    box-shadow: 0 0 0.2em #82ea5c, 0 0 0.5em #c3f7b0, inset 0 0 0.5em #cbf6bc;
+    border: none;
+}
