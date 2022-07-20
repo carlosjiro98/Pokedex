@@ -1,10 +1,16 @@
 import s from './Card.module.css';
-function Card () {
+function Card ({poke}) {
     return (
         <div className={s.card}>
-            <h3>Snorlax</h3>
-            <img alt='pokemon' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/143.svg"/>
-            <p>Agua, Fuego</p>
+            <div className={s.pname}>
+                <h3>{poke.name.toUpperCase()}</h3>
+            </div>
+            <div className={s.imgContainer}>
+                <img alt='pokemon' src={poke.image}/>
+            </div>
+            <div className={s.types}>
+            <p>{poke.types.join(', ')}</p>
+            </div>
         </div>
     )
 }

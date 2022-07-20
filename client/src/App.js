@@ -7,19 +7,24 @@ import Home from './components/Home/Home';
 import Nav from './components/Nav/Nav'
 //Utils
 import { Switch, Route } from 'react-router-dom'
-import {useDispatch} from 'react-redux'
 import { useEffect } from 'react';
-import {getPokes} from './store/actions'
+import { useDispatch } from 'react-redux';
+import { getMain } from './store/actions'
 
 function App() {
   const dispatch = useDispatch();
-  
-  useEffect(()=>{
-    dispatch(getPokes);
-  },[])
 
+  useEffect(()=>{  
+    console.log("Me inicio")
+    let gg = async () => {
+      dispatch(getMain());
+    }
+    gg();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+  
   return (
-    <div className="App">
+    <div className="App">      
       <Switch>
         <Route path='/home'>
           <Nav/>
