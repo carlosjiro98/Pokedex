@@ -3,9 +3,51 @@ Main Red: #e63946
 */
 .navContainer {
     height: 4rem;
-    background-color: #e63946;
+    background-color: #ef1d2f;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 25rem;
+}
+h1 {
+    margin: 0;
+}
+.logo {
+    height: 3.5rem;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #ffff61;
+    border-radius: 10px; */
+    gap: 1rem;
+    color: white;
+}
+.logo img {
+    height: 3.5rem;
+    object-fit: contain;
+}
+.btns {
+    height: 3.5rem;
+    width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+.btns button {
+    border: none;
+    border-radius: 10px;
+    background-color: #ffff61;
+    height: 3rem;
+    width: 9rem;
+    font-weight: bolder;
+    font-size: 2rem;
+    color: rgb(68, 68, 68);
+}
+
+.btns button:hover {
+    background-color: #ef1d2f;
+    border: 3px solid #ffff61;
+    color: #ffff61;
 }

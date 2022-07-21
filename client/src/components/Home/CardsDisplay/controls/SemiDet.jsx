@@ -1,8 +1,20 @@
 import { useSelector } from 'react-redux';
 import s from './SemiDet.module.css'
+
 function SemiDet () {
+
     let poke = useSelector((state) => state.pokeDetail)
-    console.log(poke)
+
+    function handleTipos() {
+        if(poke.length===0) return <p className={s.resaltar}>"cargando"</p>
+        if(poke.id.length>10){
+            let x = poke.types.map((e)=>e.name)
+            console.log(x)
+            return <p className={s.resaltar}>{x.join(', ')}</p>
+        }
+        return <p className={s.resaltar}>{poke.types.join(', ')}</p>
+    }
+
     return <div className={s.mainC}>
         <div className={s.pokeimg}>
             {poke.length===0 ? "cargando..." : <img src={poke.image} alt="bb" />}
@@ -14,7 +26,7 @@ function SemiDet () {
             </div>
             <div className={s.juntar}>
                 <p>tipo:</p>
-                <p className={s.resaltar}>{poke.length===0 ? "cargando" : poke.types.join(', ')}</p>
+                {handleTipos()}
             </div>
             
             <div className={s.juntar}>

@@ -7,7 +7,6 @@ function Card ({poke}) {
     function handleImgOnClick () {
         dispatch(getDetail("reset"))
         dispatch(getDetail(poke.id))
-        console.log(`despache id: ${poke.id}`)
         dispatch(setSemi('semiDet'));
     }
     return (

@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 import s from './Create.module.css'
 import pika from '../../img/pika.gif'
-
+import {postPoke, getMain, getDetail} from '../../store/actions'
 
 function Create () {
+    const history = useHistory();
+    const dispatch = useDispatch()
     let types = useSelector((state) => state.types)
+    let det = useSelector((state)=>state.pokeCreado)
     let [stats, setStats] = useState({
         hp: 20,
         attack: 20,
@@ -15,7 +18,8 @@ function Create () {
         height: 20,
         weight: 20,
         name: "",
-        image: ""
+        image: "",
+        types: []
     })
     function handleOnChange (e) {
         setStats((prev)=>{
@@ -25,9 +29,64 @@ function Create () {
             }
         })
     }
+    function handleCheck (e) {
+        //!e.target.checked ? arr = arr.filter((n)=> n!== e.target.name) : arr.push(e.target.name)
+        if (e.target.checked) {
+            setStats((prev)=>{
+                return {
+                    ...prev,
+                    types: [...stats.types, e.target.name]
+                }
+            })
+        }
+        if(!e.target.checked) {
+            setStats((prev)=>{
+                return {
+                    ...prev,
+                    types: stats.types.filter((t)=>t!==e.target.name)
+                }
+            })
+        }
+        
+    }
+    function validate () {
+        if(!stats.name){
+            alert("Ingrese un nombre");
+            return false
+        } else if(!/^[a-zA-Z0-9-.]+$/.test(stats.name)){
+            alert("Solo se permiten letras , numeros, puntos y guiones")
+            return false
+        }
+        if(!stats.image){
+            alert("Ingrese un una url");
+            return false
+        } else if(!/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(stats.image)){
+            alert("Ingresa una URL valida")
+            return false
+        }
+        if(stats.types.length===0){
+            alert("Selecciona al menos 1 tipo y hasta 3");
+            return false
+        } else if(stats.types.length>3){
+            alert("Deben ser menos de 3 tipos")
+            return false
+        }
+        return true
+    }
+    function handleOnSubmit (e) {
+        e.preventDefault();
+        if(validate()){
+            dispatch(postPoke(stats))
+            .then(()=>{
+                dispatch(getDetail("creado"));
+            })
+            dispatch(getMain());
+            history.push('/home/detail')
+        }
+    }
     return (
         <div className={s.mainC}>
-            <form className={s.form}>
+            <form className={s.form} onSubmit={handleOnSubmit}>
                 <div className={s.txtRange}>
                     <div className={s.nameImg}>
                         <div>
@@ -72,7 +131,9 @@ function Create () {
                     <div className={s.typesC}>
                         {types.length>0 ? types.map((e)=><div key={e.id}>
                                                             <input 
-                                                                type="checkbox"/>  {e.name}
+                                                                type="checkbox"
+                                                                name={e.name}
+                                                                onChange={handleCheck}/>  {e.name}
                                                             </div>) : "Cargando Tipos ..."
                         }
                     </div>

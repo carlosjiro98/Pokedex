@@ -5,6 +5,15 @@ function Detail () {
 
     let pokeD = useSelector((state) => state.pokeDetail) 
 
+    function handleTipos() {
+        if(pokeD.length===0) return <p className={s.resInfo}>"cargando"</p>
+        if(pokeD.id.length>10){
+            let x = pokeD.types.map((e)=>e.name)
+            return <p className={s.resInfo}>{x.join(', ')}</p>
+        }
+        return <p className={s.resInfo}>{pokeD.types.join(', ')}</p>
+    }
+
     return <div className={s.mainC}>
             <div className={s.card}>
 
@@ -19,7 +28,8 @@ function Detail () {
                     </div>
                     <div className={s.nameC}>
                         <p>Tipo:</p>
-                        <p className={s.resInfo}>{pokeD.length===0 ? "cargando" : pokeD.types.join(', ')}</p>
+                        {handleTipos()}
+                        {/* <p className={s.resInfo}>{pokeD.length===0 ? "cargando" : pokeD.types.join(', ')}</p> */}
                     </div>
                     <div className={s.nameC}>
                         <p>Id: <b className={s.resInfo}>{pokeD.id || "cargando..."}</b></p>

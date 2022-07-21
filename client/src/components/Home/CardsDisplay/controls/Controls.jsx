@@ -62,7 +62,6 @@ function Controls() {
         dispatch(setSemi("semiSer"))
     }
     function handleDET () {
-        console.log("vamos al Detalle");
         history.push('/home/detail')
     }
     function SemiRender() {

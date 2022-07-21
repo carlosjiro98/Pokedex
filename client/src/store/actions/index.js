@@ -46,11 +46,20 @@ export function setSemi (semi) {
         payload: semi,
     }
 }
+export function resetMain () {
+    return {
+        type: "resetMain"
+    }
+}
 
 export function getDetail (id) {
     if (id === "reset") {
         return {
             type: "resGetDetail"
+        }
+    } else if (id==="creado") {
+        return {
+            type: "GetDetailCreado"
         }
     } else {
         return async (dispatch) => {
@@ -74,6 +83,20 @@ export function getType () {
             return dispatch({
                 type: "getType",
                 payload: aTypes.data,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export function postPoke (stats) {
+    return async (dispatch) => {
+        try {
+            let pokeC = await axios.post("http://localhost:3001/pokemons/", stats);
+            return dispatch({
+                type: "postPoke",
+                payload: pokeC.data,
             })
         } catch (error) {
             console.log(error);

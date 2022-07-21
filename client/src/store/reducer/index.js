@@ -7,6 +7,7 @@ const initialState = {
     pokeDetail: [],
     pokeName: [],
     searchErr: false,
+    pokeCreado: []
 }
 
 export default function reducer (state = initialState, {type, payload}) {
@@ -63,6 +64,9 @@ export default function reducer (state = initialState, {type, payload}) {
         case "resGetDetail": return {...state, pokeDetail: []}
         case "getName": return {...state, pokeName: payload, mainPokes: payload, searchErr: false}
         case "searchErr": return {...state, searchErr: true}
+        case "postPoke": return {...state, pokeCreado: payload}
+        case "resetMain": return {...state, mainPokes: []}
+        case "GetDetailCreado": return {...state, pokeDetail: state.pokeCreado}
         default: return state;
     }
 }
