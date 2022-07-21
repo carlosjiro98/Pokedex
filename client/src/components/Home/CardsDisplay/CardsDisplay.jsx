@@ -2,12 +2,24 @@ import s from './CardsDisplay.module.css';
 import Card from './Card'
 import Controls from './controls/Controls';
 
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import charge from '../../../img/ch.gif'
+import {inc} from '../../../store/actions'
 
 function CardsDisplay () {
-
+    const dispatch = useDispatch();
+    let page = useSelector((state) => state.count)
     let pokes = useSelector((state) => state.mainPokes);
+    /* const lastIndex = page * 16;
+        const firstIndex = lastIndex - 16;
+        const gamesp = games.slice(firstIndex, lastIndex) */
+    const lastIndex = page * 12;
+    let arrPokes = pokes.slice(0, lastIndex);
+
+    function handleOnClick () {
+        dispatch(inc());
+        console.log(page)
+    }
 
     return (
         <div className={s.displayContainer}>
@@ -24,10 +36,10 @@ function CardsDisplay () {
                 <div className={s.display}>
                     <div className={s.cards}>
                         {
-                            pokes.length > 0 ? pokes.map((p)=><Card poke={p} key={p.id}/>) : <div className={s.loading}><img alt='loading' src={charge}/></div>
+                            arrPokes.length > 0 ? arrPokes.map((p)=><Card poke={p} key={p.id}/>) : <div className={s.loading}><img alt='loading' src={charge}/></div>
                         }
                     </div>
-                    <div className={s.moreBtn}>
+                    <div className={s.moreBtn} onClick={handleOnClick}>
                         <h3>Ver Mas</h3>
                     </div>
                 </div>

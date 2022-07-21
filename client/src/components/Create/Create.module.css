@@ -1,0 +1,114 @@
+.mainC {
+    background-color: rgb(246, 255, 79);
+    border: 15px solid rgb(192, 200, 47);
+    display: flex;
+    width: 90%;
+    height: 60vh;
+    margin: auto;
+    margin-top: 13vh;
+    border-radius: 40px;
+    overflow: hidden;
+    color: rgb(34, 34, 34);
+}
+
+.form {
+    width: 65%;
+    display: flex;
+}
+.txtRange {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.range {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+}
+.alRange{
+    display: flex;
+    gap: 0.5rem;
+}
+.typesCreate {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.typesC {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    justify-items: start;
+}
+
+.typesCreate button {
+    border: none;
+    width: 10rem;
+    height: 3rem;
+    background-color: tomato;
+    border-radius: 10px;
+    font-weight: bolder;
+    color: antiquewhite;
+    font-size: 1.5rem;
+    
+}
+.nameImg {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+.nameImg input {
+    border: none;
+    border-radius: 5px;
+    width: 20rem;
+    height: 1.7rem;
+    margin-top: 0.5rem;
+}
+.gifHome{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.pikaGif{
+    width: 20rem;
+    height: 22rem;
+    overflow: hidden;
+}
+.pikaGif img {
+    width: 100%;
+    object-fit: contain;
+}
+.gifHome button {
+    border: none;
+    width: 10rem;
+    height: 3rem;
+    background-color: tomato;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: antiquewhite;
+}
+.gifHome button:hover {
+    background-color: rgb(188, 75, 55);
+}
+.typesCreate button:hover {
+    background-color: rgb(188, 75, 55);
+}

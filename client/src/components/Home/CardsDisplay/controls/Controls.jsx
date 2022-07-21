@@ -1,18 +1,23 @@
 import s from './Controls.module.css';
 import cruz from '../../../../img/cruzeta.png'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 
-import {az, za, apiOrDb, attack, getType} from '../../../../store/actions';
+import {az, za, apiOrDb, attack, getHome, setSemi, dec} from '../../../../store/actions';
 import Tipos from './Tipos';
+import SemiHome from './SemiHome'
+import SemiDet from './SemiDet'
+import SemiSearch from './SemiSearch'
 
 function Controls() {
-
+    const history = useHistory()
     const dispatch = useDispatch();
     let [ind, setInd] = useState(0)
     let [name, setName] = useState("DB")
     let [atOrder, setAtOrder] = useState(false)
+    let semiIn = useSelector((state)=>state.semiIndicator)
 
     function handleAOD () {
         if (ind === 0) {
@@ -45,15 +50,35 @@ function Controls() {
         setAtOrder(!atOrder);
     }
     function handleTY () {
-        console.log('types')
-        dispatch(getType());
+        dispatch(setSemi("semiTipos"))
     }
-
+    function handleHOME () {
+        console.log("vamos al home")
+        dispatch(getHome())
+        dispatch(dec());
+        dispatch(setSemi("semiHome"))
+    }
+    function handleSCH () {
+        dispatch(setSemi("semiSer"))
+    }
+    function handleDET () {
+        console.log("vamos al Detalle");
+        history.push('/home/detail')
+    }
+    function SemiRender() {
+        switch(semiIn){
+            case "semiTipos": return <Tipos/>
+            case "semiDet": return <SemiDet/>
+            case "semiSer": return <SemiSearch/>
+            default: return <SemiHome/>
+        }
+    }
+/* ---------------------------------------------- Renderizado --------------------------------------- */
     return (
         <div className={s.mainContainer}>
 
             <div className={s.semiDetail}>
-                <Tipos/>
+                {SemiRender()}
             </div>
 
             <div className={s.controls}>
@@ -71,14 +96,14 @@ function Controls() {
                 </div>
                 
                 <div className={s.nav}>
-                    <div className={s.circle}>
+                    <div className={s.circle} onClick={handleSCH}>
                         <div className={s.find}>Buscar</div>
                     </div>
-                    <div className={s.circle}>
+                    <div className={s.circle} onClick={handleDET}>
                         <div className={s.detail}>Detalle</div>
                     </div>
                     <div className={s.home}>
-                        <img src={cruz} alt="cruzeta" />
+                        <img src={cruz} alt="cruzeta" onClick={handleHOME}/>
                     </div>
                 </div>
             </div>

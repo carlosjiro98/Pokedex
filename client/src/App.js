@@ -9,7 +9,7 @@ import Nav from './components/Nav/Nav'
 import { Switch, Route } from 'react-router-dom'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getMain } from './store/actions'
+import { getMain, getType } from './store/actions'
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ function App() {
     console.log("Me inicio")
     let gg = async () => {
       dispatch(getMain());
+      dispatch(getType());
     }
     gg();
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,7 +1,7 @@
 const {Pokemon, Type} = require('../db');
 
 async function pokeDbCreate (poke) {
-    let {name, life, attack, defense, speed, height, weight, image, types} = poke;
+    let {name, hp, attack, defense, speed, height, weight, image, types} = poke;
 
     try {
         let [poke, created] = await Pokemon.findOrCreate({ //cambiar la x
@@ -9,7 +9,7 @@ async function pokeDbCreate (poke) {
             defaults: {
                 image,
                 name, 
-                life, 
+                hp, 
                 attack, 
                 defense, 
                 speed, 

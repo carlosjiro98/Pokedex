@@ -48,7 +48,7 @@ router.get('/', async (req, res)=>{
                 }
             })
             if(dbPoke.length > 0) allSearch.push(dbPoke);
-            res.send(allSearch.length > 0 ? allSearch :"No se encontraron Pokemones");
+            res.send(allSearch.length > 0 ? allSearch : 404);
         } catch (err) {
             res.send({err: err.mesaage});
         }

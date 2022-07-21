@@ -1,0 +1,59 @@
+.mainC {
+    color: rgb(79, 79, 63);
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+p {
+    margin: 0;
+}
+.pokeimg{
+    width: 70%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pokeimg img {
+    width: 100%;
+    object-fit: cover;
+}
+.pokeinfo{
+    width: 60%;
+    height: 90%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+.resaltar {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin: 0;
+    color: rgb(237, 55, 55);
+} 
+.resaltarid{
+    font-size: 100%;
+    font-weight: bolder;
+    margin: 0;
+    color: rgb(237, 55, 55);
+}
+.juntar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0.5rem auto;
+}
+.juntarx {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
