@@ -9,7 +9,6 @@ function Create () {
     const history = useHistory();
     const dispatch = useDispatch()
     let types = useSelector((state) => state.types)
-    let det = useSelector((state)=>state.pokeCreado)
     let [stats, setStats] = useState({
         hp: 20,
         attack: 20,

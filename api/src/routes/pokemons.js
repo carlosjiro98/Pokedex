@@ -9,6 +9,23 @@ const pokeDbCreate = require('../constrollers/pokeDbCreate');
 
 const {Pokemon, Type} = require('../db');
 
+/* router.delete('/:id', async (req, res) =>{
+    const {id} = req.params;
+    try {
+        if(id) {
+            let del = await Pokemon.destroy({
+                where: {id}
+            });
+            console.log(del)
+            if(del===1) return res.send("Eliminado")
+            res.send("Inexistente")
+            
+        }
+    } catch (err) {
+        res.send(err.mesaage)
+    }
+}) */
+
 router.get('/:id', async (req, res) => {
     const {id} = req.params
     let pokemon = {}
@@ -47,7 +64,9 @@ router.get('/', async (req, res)=>{
                     model: Type
                 }
             })
-            if(dbPoke.length > 0) allSearch.push(dbPoke);
+
+            if(dbPoke.length > 0) allSearch.push(dbPoke[0]);
+
             res.send(allSearch.length > 0 ? allSearch : 404);
         } catch (err) {
             res.send({err: err.mesaage});

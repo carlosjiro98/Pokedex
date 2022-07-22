@@ -15,7 +15,7 @@ function Controls() {
     const history = useHistory()
     const dispatch = useDispatch();
     let [ind, setInd] = useState(0)
-    let [name, setName] = useState("DB")
+    let [name, setName] = useState("db")
     let [atOrder, setAtOrder] = useState(false)
     let semiIn = useSelector((state)=>state.semiIndicator)
 
@@ -53,7 +53,6 @@ function Controls() {
         dispatch(setSemi("semiTipos"))
     }
     function handleHOME () {
-        console.log("vamos al home")
         dispatch(getHome())
         dispatch(dec());
         dispatch(setSemi("semiHome"))

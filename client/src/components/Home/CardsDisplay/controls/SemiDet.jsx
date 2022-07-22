@@ -9,7 +9,6 @@ function SemiDet () {
         if(poke.length===0) return <p className={s.resaltar}>"cargando"</p>
         if(poke.id.length>10){
             let x = poke.types.map((e)=>e.name)
-            console.log(x)
             return <p className={s.resaltar}>{x.join(', ')}</p>
         }
         return <p className={s.resaltar}>{poke.types.join(', ')}</p>

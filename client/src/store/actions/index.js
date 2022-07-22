@@ -57,11 +57,11 @@ export function getDetail (id) {
         return {
             type: "resGetDetail"
         }
-    } else if (id==="creado") {
+    } else if(id === "creado"){
         return {
             type: "GetDetailCreado"
         }
-    } else {
+    }{
         return async (dispatch) => {
             try {
                 let pokeDet = await axios.get(`http://localhost:3001/pokemons/${id}`);

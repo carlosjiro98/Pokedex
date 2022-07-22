@@ -8,17 +8,17 @@ import {inc} from '../../../store/actions'
 
 function CardsDisplay () {
     const dispatch = useDispatch();
-    let page = useSelector((state) => state.count)
+    //let page = useSelector((state) => state.count)
     let pokes = useSelector((state) => state.mainPokes);
-    /* const lastIndex = page * 16;
-        const firstIndex = lastIndex - 16;
-        const gamesp = games.slice(firstIndex, lastIndex) */
-    const lastIndex = page * 12;
-    let arrPokes = pokes.slice(0, lastIndex);
 
+    /* const lastIndex = page * 16;
+    const firstIndex = lastIndex - 16;
+    const arrPokes = pokes.slice(firstIndex, lastIndex)  */
+    /* const lastIndex = page * 12;
+    let arrPokes = pokes.slice(0, lastIndex);
+ */
     function handleOnClick () {
         dispatch(inc());
-        console.log(page)
     }
 
     return (
@@ -36,7 +36,7 @@ function CardsDisplay () {
                 <div className={s.display}>
                     <div className={s.cards}>
                         {
-                            arrPokes.length > 0 ? arrPokes.map((p)=><Card poke={p} key={p.id}/>) : <div className={s.loading}><img alt='loading' src={charge}/></div>
+                            pokes.length > 0 ? pokes.map((p)=><Card poke={p} key={p.id}/>) : <div className={s.loading}><img alt='loading' src={charge}/></div>
                         }
                     </div>
                     <div className={s.moreBtn} onClick={handleOnClick}>

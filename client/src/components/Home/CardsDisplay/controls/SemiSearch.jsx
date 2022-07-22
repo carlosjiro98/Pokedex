@@ -11,7 +11,6 @@ function SemiSearch () {
 
     function handleOnSubmit (e) {
         e.preventDefault()
-        console.log(search)
         dispatch(getName(search));
     }
     function handleOnChage (e) {

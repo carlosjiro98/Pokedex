@@ -42,7 +42,7 @@ export default function reducer (state = initialState, {type, payload}) {
         case "apiOrDb":
             let pokeListAOD = [...state.copyMain];
             if (payload === "api") pokeListAOD = pokeListAOD.filter(el => typeof (el.id) === 'number');
-            if (payload === "db") pokeListAOD = pokeListAOD.filter(el => typeof (el.id) !== 'number');
+            if (payload === "db") pokeListAOD = pokeListAOD.filter(el => el.id.length>10);
             if (payload === "all") pokeListAOD = [...state.copyMain];
             return {...state, mainPokes: pokeListAOD}
         case "attack":

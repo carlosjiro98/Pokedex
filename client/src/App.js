@@ -16,11 +16,9 @@ function App() {
 
   useEffect(()=>{  
     console.log("Me inicio")
-    let gg = async () => {
-      dispatch(getMain());
-      dispatch(getType());
-    }
-    gg();
+    dispatch(getMain());
+    dispatch(getType());
+ 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   

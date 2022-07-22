@@ -18,7 +18,7 @@ function Detail () {
             <div className={s.card}>
 
                 <div className={s.imgHome}>
-                    {pokeD.length===0 ? "cargando..." : <img src={pokeD.image} alt="poke" />}
+                    <img src={pokeD.image} alt="poke" />
                 </div>
 
                 <div className={s.info}>
